@@ -5,5 +5,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('admin/dashboard');
 });
-
+router.get('/login',(req,res)=>{
+  res.render('admin/login')
+})
 module.exports = router;
