@@ -8,7 +8,7 @@ var indexRouter = require('./routes/index');
 var adminRouter = require('./routes/admin');
 var hbs = require('express-handlebars')
 var app = express();
-
+var db = require('./config/connection')
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -18,6 +18,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+db.connect((err)=>{
+  if(err) console.log("Database Connection Error");
+  else console.log("database Connected Successfully");
+})
+
 
 app.use('/', indexRouter);
 app.use('/admin', adminRouter);
