@@ -16,9 +16,7 @@
                 <h2 class="login-txt text-center">Admin Login</h2>
 
                 <form action="/admin/login" method="POST">
-                    {{#if loginErr}}
-                    <p class="error text-danger">{{loginErr}}</p>
-                    {{/if}}
+                    
                     <div class="form-group mt-5">
                         <label> <b>E-mail:</b> </label>
                         <input type="email" class="form-control mt-1" name="Email" placeholder="Enter E-mail">
@@ -27,6 +25,9 @@
                         <label> <b>Password:</b> </label>
                         <input type="password" class="form-control mt-1" name="Password" placeholder="Enter Password">
                     </div>
+                    {{#if loginErr}}
+                    <p class="error text-danger">{{loginErr}}</p>
+                    {{/if}}
                     <div class="container">
                         <button type="submit" class="login-btn mt-4" style="width: 100%;">Login now</button>
                     </div>

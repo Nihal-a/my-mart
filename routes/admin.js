@@ -16,7 +16,8 @@ router.get('/login',(req,res)=>{
   if(req.session.user){
     res.redirect('/admin')
   }else{
-    res.render('admin/login')
+    res.render('admin/login',{loginErr:req.session.loginErr})
+    req.session.loginErr=false
   }
   
 })
@@ -28,6 +29,7 @@ router.post('/login',(req,res)=>{
       req.session.user=response.user
       res.redirect('/admin')
     }else{
+      req.session.loginErr="Invalid Email or Password"
       res.redirect('/admin/login')
     }
   })
