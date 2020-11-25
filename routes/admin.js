@@ -13,7 +13,12 @@ router.get('/', function(req, res, next) {
   
 });
 router.get('/login',(req,res)=>{
-  res.render('admin/login')
+  if(req.session.user){
+    res.redirect('/admin')
+  }else{
+    res.render('admin/login')
+  }
+  
 })
 router.post('/login',(req,res)=>{
   adminHelpers.doLogin(req.body).then((response)=>{
