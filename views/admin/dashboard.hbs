@@ -1,2 +1,5 @@
 <h1>admin dashboard</h1>
 <a href="admin/login" class="btn btn-primary">login</a>
+{{#if user}}
+    <a href="admin/logout" class="btn btn-primary">logout</a>
+{{/if}}
