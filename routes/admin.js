@@ -6,7 +6,7 @@ const adminHelpers=require('../helpers/admin-helper')
 router.get('/', function(req, res, next) {
   let user=req.session.user
   if(user){
-    res.render('admin/dashboard',{user});
+    res.render('admin/dashboard',{user,style:'dashboard.css'});
   }else{
     res.redirect('/admin/login')
   }
