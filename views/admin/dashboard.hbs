@@ -5,9 +5,9 @@
 
         <!-- sidebar nav start -->
         <ul class="nav nav-pills nav-stacked custom-nav">
-        
-            <li class="mt-5"><a href=""><i class="fa fa-users"></i> <span>Dealers</span></a></li>
-          
+
+          <li class="mt-5"><a href=""><i class="fa fa-users"></i> <span>Dealers</span></a></li>
+
           <li><a href="#"><i class="fa fa-cog"></i> <span>Settings</span></a></li>
         </ul>
         <a class="toggle-btn">
@@ -33,7 +33,7 @@
               <a href="" class="btn btn-primary">Add Vendor <i class="fas fa-plus ml-1"></i></a>
             </div>
           </ol>
-          
+
         </nav>
 
 
@@ -80,7 +80,68 @@
           </div>
         </div>
         <!-- //statistics data -->
-
+        <h4 class="p-2">All Dealers.</h4>
+        {{!-- table start --}}
+        <div class="container">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Dealers Address</th>
+                <th scope="col">Dealers Name</th>
+                <th scope="col">Status</th>
+                <th scope="col" class="act">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Day mart</td>
+                <td>Mark</td>
+                <td>
+                  Open<br>
+                  <span class="tm-txt" style="color: #acacac;">7:30 PM</span>
+                </td>
+                <td>
+                  <a href="" class="btn btn-edit">EDIT</a>
+                  <div class="pt-1 pb-1">
+                    <a href="" class="btn btn-delete">DEL</a>
+                  </div>
+                  <a href="" class="btn btn-ban">BAN</a>
+                </td>
+              </tr>
+              <tr>
+                <td>Hyp mart</td>
+                <td>Jacob</td>
+                <td>
+                  Open<br>
+                  <span class="tm-txt" style="color: #acacac;">7:30 PM</span>
+                </td>
+                <td>
+                  <a href="" class="btn btn-edit">EDIT</a>
+                  <div class="pt-1 pb-1">
+                    <a href="" class="btn btn-delete">DEL</a>
+                  </div>
+                  <a href="" class="btn btn-ban">BAN</a>
+                </td>
+              </tr>
+              <tr>
+                <td>Ind mart</td>
+                <td>Larry</td>
+                <td>
+                  Open<br>
+                  <span class="tm-txt" style="color: #acacac;">7:30 PM</span>
+                </td>
+                <td>
+                  <a href="" class="btn btn-edit">EDIT</a>
+                  <div class="pt-1 pb-1">
+                    <a href="" class="btn btn-delete">DEL</a>
+                  </div>
+                  <a href="" class="btn btn-ban">BAN</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        {{!-- table end --}}
         <style>
           body {
             font-family: 'Montserrat', sans-serif;
@@ -122,8 +183,45 @@
           .btn-primary {
             font-family: 'Montserrat', sans-serif;
           }
-          .nav{
+
+          .nav {
             font-family: 'Montserrat', sans-serif;
+          }
+
+          .btn-edit {
+            background-color: #53B175;
+            border-radius: 30px;
+            width: 90px;
+            height: 35px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            font-family: 'Montserrat', sans-serif;
+            color: #fff;
+          }
+
+          .btn-delete {
+            background-color: #9c0000;
+            border-radius: 30px;
+            width: 90px;
+            height: 35px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            font-family: 'Montserrat', sans-serif;
+            color: #fff;
+          }
+
+          .btn-ban {
+            background-color: #8fad06ec;
+            border-radius: 30px;
+            width: 90px;
+            height: 35px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            font-family: 'Montserrat', sans-serif;
+            color: #fff;
           }
         </style>
         <script>
