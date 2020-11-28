@@ -7,7 +7,7 @@ const verifyLogin=(req,res,next)=>{
   if(req.session.logedIn){
     next()
   }else{
-    res.redirect('')
+    res.redirect('/admin/login')
   }
 }
 router.get('/', function(req, res, next) {
@@ -44,6 +44,8 @@ router.post('/login',(req,res)=>{
 })
 router.get('/logout',(req,res)=>{
   req.session.destroy()
-  res.redirect('/admin/login')
+  res.redirect('/admin')
+  
 })
+
 module.exports = router;
