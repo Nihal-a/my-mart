@@ -11,9 +11,9 @@ const verifyLogin=(req,res,next)=>{
   }
 }
 router.get('/', function(req, res, next) {
-  let user=req.session.user
-  if(user){
-    res.render('admin/dashboard',{user,style:'dashboard.css'});
+  let admin=req.session.user
+  if(admin){
+    res.render('admin/dashboard',{admin});
   }else{
     res.redirect('/admin/login')  
   }
@@ -30,7 +30,6 @@ router.get('/login',(req,res)=>{
 })
 router.post('/login',(req,res)=>{
   adminHelpers.doLogin(req.body).then((response)=>{
-    console.log("res---",response);
     if(response.status){
       req.session.logedIn=true
       req.session.user=response.user
@@ -42,10 +41,21 @@ router.post('/login',(req,res)=>{
   })
     
 })
+router.get('/settings',(req,res)=>{
+  let admin=req.session.user
+  if(admin){
+    res.render('admin/settings',{admin})
+  }else{
+    res.redirect('/admin')
+  }
+})
 router.get('/logout',(req,res)=>{
   req.session.destroy()
   res.redirect('/admin')
-  
+})
+router.get('/admin/logout',(req,res)=>{
+  req.session.destroy()
+  res.redirect('/admin')
 })
 
 module.exports = router;

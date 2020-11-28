@@ -13,7 +13,6 @@ module.exports={
                        console.log("login success");
                        response.user=user
                        response.status=true
-                       console.log("res---",response);
                        resolve(response)
                    }else{
                        console.log("wrong password");

@@ -16,6 +16,9 @@
     <title>My Mart | Easy Grocery Delivery System</title>
   </head>
   <body>
+    {{#if admin}}
+    {{>admin-sidemenu}}
+    {{/if}}
     {{{body}}}
 
     <!-- Optional JavaScript; choose one of the two! -->
