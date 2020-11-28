@@ -3,12 +3,19 @@ const { response } = require('../app');
 var router = express.Router();
 const adminHelpers=require('../helpers/admin-helper')
 /* GET users listing. */
+const verifyLogin=(req,res,next)=>{
+  if(req.session.logedIn){
+    next()
+  }else{
+    res.redirect('')
+  }
+}
 router.get('/', function(req, res, next) {
   let user=req.session.user
   if(user){
     res.render('admin/dashboard',{user,style:'dashboard.css'});
   }else{
-    res.redirect('/admin/login')
+    res.redirect('/admin/login')  
   }
   
 });

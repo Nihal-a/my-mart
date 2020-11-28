@@ -10591,7 +10591,7 @@ input#search:focus + .search-submit,
 .sidebar-menu .logged-user .media-body span {
   font-style: italic;
   font-size: 11px;
-  opacity: 0.5; }
+  opacity: 1; }
 
 .custom-nav > li > a {
   color: #404040;
