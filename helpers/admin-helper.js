@@ -1,6 +1,8 @@
 var db=require('../config/connection')
 var collection=require('../config/collections')
 const bcrypt=require('bcrypt')
+const { response } = require('express')
+var objectId=require('mongodb').ObjectID
 module.exports={
     doLogin:(userData)=>{
         return new Promise(async(resolve,reject)=>{
@@ -38,6 +40,13 @@ module.exports={
             let vendors=await db.get().collection(collection.VENDOR_COLLECTION).find().toArray()
             console.log("ven--",vendors);
             resolve(vendors)
+        })
+    },
+    deleteVendor:(proId)=>{
+        return new Promise((resolve,reject)=>{
+            db.get().collection(collection.VENDOR_COLLECTION).removeOne({_id:objectId(proId)}).then((response)=>{
+                resolve(response)
+            })
         })
     }
 }
