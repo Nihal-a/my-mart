@@ -13,7 +13,9 @@ const verifyLogin=(req,res,next)=>{
 router.get('/', function(req, res, next) {
   let admin=req.session.user
   if(admin){
-    res.render('admin/dashboard',{admin});
+    adminHelpers.getAllVendors().then((vendors)=>{
+      res.render('admin/dashboard',{admin,vendors});
+    })
   }else{
     res.redirect('/admin/login')  
   }

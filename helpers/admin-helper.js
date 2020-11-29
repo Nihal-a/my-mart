@@ -32,5 +32,12 @@ module.exports={
                 resolve(data.ops[0]._id)
             })
         })
+    },
+    getAllVendors:()=>{
+        return new Promise(async(resolve,reject)=>{
+            let vendors=await db.get().collection(collection.VENDOR_COLLECTION).find().toArray()
+            console.log("ven--",vendors);
+            resolve(vendors)
+        })
     }
 }
