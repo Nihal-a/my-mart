@@ -33,11 +33,11 @@
                 </div>
                 <div class="im-ar col-md-4">
                     <div class="img-area">
-                        <img src="/images/no-image.jpg" alt="Avatar">
+                        <img src="/images/no-image.jpg" alt="Avatar" id="imgView">  
                     </div>
                     <div class="btn-plc pt-4">
                         <label for="file" class="btn btn-primary">Add Image</label>
-                        <input type="file" id="file" accept="image/*">
+                        <input type="file" id="file" accept="image/*" onchange="viewImage(event)">
                     </div>
                 </div>
                 <div class="m-auto pt-3">
@@ -90,3 +90,8 @@
         margin-left: 7rem;
     }
 </style>
+<script>
+    function viewImage(event){
+        document.getElementById('imgView').src=URL.createObjectURL(event.target.files[0])
+    }
+</script>
