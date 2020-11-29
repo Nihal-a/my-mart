@@ -60,5 +60,18 @@ router.get('/admin/logout',(req,res)=>{
 router.get('/add-vendor',verifyLogin,(req,res)=>{
   res.render('admin/add-vendor')
 })
-
+router.post('/add-vendor',(req,res)=>{
+  console.log(req.body);
+  console.log(req.files.Image);
+  adminHelpers.addVendor(req.body).then((id)=>{
+    let image=req.files.Image
+    image.mv('./public/vendor-images/'+id+'.jpg',(err,done)=>{
+      if(!err){
+        res.redirect('/admin')
+      }else{
+        console.log(err);
+      }
+    })
+  })
+})
 module.exports = router;
