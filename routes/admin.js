@@ -88,4 +88,9 @@ router.get('/edit-vendor/',async(req,res)=>{
    console.log(vendor);
    res.render('admin/edit-vendor',{vendor})
 })
+router.post('/edit-vendor/:id',(req,res)=>{
+  adminHelpers.updateVendor(req.params.id,req.body).then(()=>{
+    res.redirect('/admin')
+  })
+})
 module.exports = router;
