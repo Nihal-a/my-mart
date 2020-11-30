@@ -82,4 +82,10 @@ router.get('/delete-vendor/:id',(req,res)=>{
     res.redirect('/admin')
   })
 })
+router.get('/edit-vendor/',async(req,res)=>{
+ let venId=req.query.id
+ let vendor=await adminHelpers.getVenderDetails(venId)
+   console.log(vendor);
+   res.render('admin/edit-vendor',{vendor})
+})
 module.exports = router;

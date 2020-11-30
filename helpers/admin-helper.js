@@ -38,7 +38,6 @@ module.exports={
     getAllVendors:()=>{
         return new Promise(async(resolve,reject)=>{
             let vendors=await db.get().collection(collection.VENDOR_COLLECTION).find().toArray()
-            console.log("ven--",vendors);
             resolve(vendors)
         })
     },
@@ -48,5 +47,13 @@ module.exports={
                 resolve(response)
             })
         })
+    },
+    getVenderDetails:(venId)=>{
+        return new Promise((resolve,reject)=>{
+            db.get().collection(collection.VENDOR_COLLECTION).findOne({_id:objectId(venId)}).then((vendor)=>{
+                resolve(vendor)
+            })
+        })
     }
+
 }
