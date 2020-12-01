@@ -89,8 +89,16 @@ router.get('/edit-vendor/',async(req,res)=>{
    res.render('admin/edit-vendor',{vendor})
 })
 router.post('/edit-vendor/:id',(req,res)=>{
+  let id=req.params.id
   adminHelpers.updateVendor(req.params.id,req.body).then(()=>{
     res.redirect('/admin')
+    if(req.files.Image){
+      let image = req.files.Image
+      image.mv('./public/vendor-images/' + id + '.jpg',)
+      console.log("image success");
+    }else{
+      console.log("image upload error");
+    }
   })
 })
 module.exports = router;
