@@ -105,9 +105,14 @@ router.get('/ban-vendor/',async(req,res)=>{
   let venId = req.query.id
   let vendor =await adminHelpers.getVenderDetails(venId)
   adminHelpers.banVendor(venId,vendor).then((response)=>{
-    console.log(response);
     res.redirect('/admin')
   })
-  
+})
+router.get('/admin/unban-vendor/',async(req,res)=>{
+  let venId=req.query.id
+  let vendor =await adminHelpers.getBannedVenderDetails(venId)
+  adminHelpers.unbanVendor(venId,vendor).then((response)=>{
+    res.redirect('/admin')
+  })
 })
 module.exports = router;

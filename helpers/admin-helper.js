@@ -83,6 +83,20 @@ module.exports={
             let banVendors = db.get().collection(collection.BAN_COLLECTION).find().toArray()
             resolve(banVendors)
         })
+    },
+    getBannedVenderDetails:(venId)=>{
+        return new Promise((resolve,reject)=>{
+            db.get().collection(collection.BAN_COLLECTION).findOne({_id:objectId(venId)}).then((vendor)=>{
+                resolve(vendor)
+            })
+        })
+    },
+    unbanVendor:(venId,venDetails)=>{
+        return new Promise((resolve,reject)=>{
+            db.get().collection(collection.BAN_COLLECTION).removeOne({_id:objectId(venId)}).then((data)=>{
+                db.get().collection(collection.VENDOR_COLLECTION).insertOne(venDetails)
+                resolve(data)
+            })
+        })
     }
-   
 }
