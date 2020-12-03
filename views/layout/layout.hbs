@@ -21,7 +21,10 @@
 <body>
   {{#if admin}}
   {{>admin-sidemenu}}
+  {{else if dealer}}
+  {{>dealer-sidemenu}}
   {{/if}}
+
   {{{body}}}
 
   <!-- Optional JavaScript; choose one of the two! -->
