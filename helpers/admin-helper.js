@@ -29,7 +29,7 @@ module.exports={
     },
     addVendor:(vendorData)=>{
         return new Promise(async(resolve,reject)=>{
-            let Password=await bcrypt.hash(vendorData.Password,10)
+            vendorData.Password=await bcrypt.hash(vendorData.Password,10)
             db.get().collection(collection.VENDOR_COLLECTION).insertOne(vendorData).then((data)=>{
                 resolve(data.ops[0]._id)
             })
