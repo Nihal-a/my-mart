@@ -20,22 +20,24 @@ router.get('/login',(req,res)=>{
   }
 })
 router.post('/login',(req,res)=>{
-  let banned=dealerHelpers.findBannedDealers(req.body)
-  if(banned){
-    res.render('dealer/banned-vendor')
-  }else{
-    dealerHelpers.doLogin(req.body).then((response)=>{
-      if(response.status){
-        req.session.logedIn=true
-        req.session.dealer=response.dealer
-        res.redirect('/dealer')
-      }else{
-        req.session.loginErr = "Invalid Email or Password"
-        res.redirect('/dealer/login')
-      }
-    })
-  }
-})
+  dealerHelpers.findBannedDealers(req.body).then((status)=>{
+    if(status){
+      res.render('dealer/banned-vendor')
+    }else{
+      dealerHelpers.doLogin(req.body).then((response)=>{
+        if(response.status){
+          req.session.logedIn=true
+          req.session.dealer=response.dealer
+          res.redirect('/dealer')
+        }else{
+          req.session.loginErr = "Invalid Email or Password"
+          res.redirect('/dealer/login')
+        }
+      })
+    }
+  })
+  })
+  
 router.get('/logout',(req,res)=>{
   req.session.destroy()
   res.redirect('/dealer')

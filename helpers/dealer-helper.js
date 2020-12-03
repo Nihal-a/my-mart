@@ -28,10 +28,14 @@ module.exports={
         })
     },
     findBannedDealers:(venDetails)=>{
-        return new Promise((resolve,reject)=>{
-            db.get().collection(collection.BAN_COLLECTION).findOne({Name:venDetails.Name}).then((data)=>{
-                resolve(data)
-            })
+        return new Promise(async(resolve,reject)=>{
+            status=false
+            let bannedVendor=await db.get().collection(collection.BAN_COLLECTION).findOne({Name:venDetails.Name})
+            if(bannedVendor){
+                resolve(status=true)
+            }else{
+                resolve(status=false)
+            }
         })
     }
 }
