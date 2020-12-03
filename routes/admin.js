@@ -41,7 +41,6 @@ router.post('/login', (req, res) => {
       res.redirect('/admin/login')
     }
   })
-
 })
 router.get('/settings', (req, res) => {
   let admin = req.session.user

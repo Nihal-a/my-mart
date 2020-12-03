@@ -1,0 +1,123 @@
+<header>
+    <div class="navbar">
+        <div class="container">
+            <h3 class="logo" style="margin-top: .5rem;">MY MART</h3>
+        </div>
+    </div>
+</header>
+<hr>
+<section style="align-items: center;">
+    <div class="form-area mt-4">
+        <div class="m-auto">
+            <div class="container">
+                <div class="admin-img">
+                    <img src="/images/admin_login_img.png" alt="Admin" width="100" height="100">
+                </div>
+                <h2 class="login-txt text-center">Dealer Login</h2>
+
+                <form action="/dealer/login" method="POST">
+                    
+                    <div class="form-group mt-5">
+                        <label> <b>Username:</b> </label>
+                        <input type="text" class="form-control mt-1" name="Name" placeholder="Enter Username">
+                    </div>
+                    <div class="form-group mt-4">
+                        <label> <b>Password:</b> </label>
+                        <input type="password" class="form-control mt-1" name="Password" placeholder="Enter Password">
+                    </div>
+                    {{#if loginErr}}
+                    <p class="error text-danger">{{loginErr}}</p>
+                    {{/if}}
+                    <div class="container">
+                        <button type="submit" class="login-btn mt-4" style="width: 100%;">Login now</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+<style>
+    body{
+        font-family: 'Montserrat', sans-serif;
+    }
+    .navbar {
+        width: 100%;
+        height: 3rem;
+    }
+
+    .logo {
+        font-size: 1.7rem;
+        font-weight: 600;
+        color: #53B175;
+    }
+
+    .form-area {
+        margin: auto;
+        width: 50rem;
+    }
+
+    .login-btn {
+        background-color: #04C35C;
+        border: 0;
+        height: 2rem;
+        color: #fff;
+        /*box-shadow: 1px 2px #c4c0c0;*/
+        border-radius: 6px;
+    }
+    .login-btn:hover {
+        background-color: #04a34e;
+        transition-duration: 0.3s;
+    }
+    .login-txt {
+        color: #04C35C;
+    }
+
+    .form-control {
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid #000000;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    .form-control:focus {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+
+    .admin-img {
+        margin: auto;
+        width: 12%;
+    }
+
+    @media (max-width : 991px) {
+        .navbar {
+            width: 100%;
+            height: 3rem;
+        }
+
+        .logo {
+            font-size: 1.7rem;
+            font-weight: 600;
+            color: #53B175;
+        }
+
+        .login-txt {
+            color: #04C35C;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .form-area {
+            margin: auto;
+            width: max-content;
+        }
+
+        .admin-img {
+            margin: auto;
+            width: 40%;
+        }
+</style>
