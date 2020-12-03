@@ -42,10 +42,11 @@ router.post('/login', (req, res) => {
     }
   })
 })
-router.get('/settings', (req, res) => {
+router.get('/settings',async(req, res) => {
   let admin = req.session.user
+  let banned=await adminHelpers.banVendorDetails()
   if (admin) {
-    res.render('admin/settings', { admin })
+    res.render('admin/settings', {admin,banned})
   } else {
     res.redirect('/admin')
   }
@@ -99,5 +100,14 @@ router.post('/edit-vendor/:id',(req,res)=>{
       console.log("image upload error");
     }
   })
+})
+router.get('/ban-vendor/',async(req,res)=>{
+  let venId = req.query.id
+  let vendor =await adminHelpers.getVenderDetails(venId)
+  adminHelpers.banVendor(venId,vendor).then((response)=>{
+    console.log(response);
+    res.redirect('/admin')
+  })
+  
 })
 module.exports = router;

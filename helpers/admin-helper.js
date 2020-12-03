@@ -70,5 +70,19 @@ module.exports={
             })
         })
     },
+    banVendor:(venId,venDetails)=>{
+        return new Promise((resolve,reject)=>{
+            db.get().collection(collection.VENDOR_COLLECTION).removeOne({_id:objectId(venId)}).then((data)=>{
+                db.get().collection(collection.BAN_COLLECTION).insertOne(venDetails)
+                resolve(data)
+            })
+        })
+    },
+    banVendorDetails:()=>{
+        return new Promise((resolve,reject)=>{
+            let banVendors = db.get().collection(collection.BAN_COLLECTION).find().toArray()
+            resolve(banVendors)
+        })
+    }
    
 }

@@ -9,11 +9,7 @@
         </div>
       </ol>
     </nav>
-
-
-
     <!-- statistics data -->
-
     <div class="statistics">
       <div class="row">
         <div class="col-xl-6 pr-xl-2">
@@ -72,7 +68,7 @@
           <tbody>
             {{#each vendors}}
             <tr>
-              <td>{{this.Storename}}</td>
+              <td style="text-transform: uppercase;">{{this.Storename}}</td>
               <td>{{this.Name}}</td>
               <td>
                 Open<br>
@@ -83,7 +79,7 @@
                 <div class="pt-1 pb-1">
                   <a href="admin/delete-vendor/{{this._id}}" onclick="return confirm('Sure to delete {{this.name}} ?')" class="btn btn-delete">DEL</a>
                 </div>
-                <a href="" class="btn btn-ban">BAN</a>
+                <a href="admin/ban-vendor?id={{this._id}}" class="btn btn-ban">BAN</a>
               </td>
             </tr>
             {{/each}}
