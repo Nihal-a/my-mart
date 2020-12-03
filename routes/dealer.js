@@ -20,6 +20,10 @@ router.get('/login',(req,res)=>{
   }
 })
 router.post('/login',(req,res)=>{
+  let banned=dealerHelpers.findBannedDealers(req.body)
+  if(banned){
+    res.render('dealer/banned-vendor')
+  }else{
     dealerHelpers.doLogin(req.body).then((response)=>{
       if(response.status){
         req.session.logedIn=true
@@ -30,6 +34,7 @@ router.post('/login',(req,res)=>{
         res.redirect('/dealer/login')
       }
     })
+  }
 })
 router.get('/logout',(req,res)=>{
   req.session.destroy()

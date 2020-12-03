@@ -26,5 +26,12 @@ module.exports={
                 resolve({status:false})
             }
         })
+    },
+    findBannedDealers:(venDetails)=>{
+        return new Promise((resolve,reject)=>{
+            db.get().collection(collection.BAN_COLLECTION).findOne({Name:venDetails.Name}).then((data)=>{
+                resolve(data)
+            })
+        })
     }
 }
