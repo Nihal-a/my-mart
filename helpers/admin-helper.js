@@ -60,7 +60,6 @@ module.exports={
             db.get().collection(collection.VENDOR_COLLECTION).updateOne({_id:objectId(venId)},{
                 $set:{
                     Name:venDetails.Name,
-                    Password:venDetails.Password,
                     Address:venDetails.Address,
                     Storename:venDetails.Storename,
                     Extrainfo:venDetails.Extrainfo,
