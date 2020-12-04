@@ -1,0 +1,86 @@
+<section>
+    <div class="container">
+        <div class="pb-2" style="width: 100%;height: auto;">
+            <h4 class="dl-txt pb-4"><b>New Dealer.</b></h4>
+        </div>
+        <form action="/admin/add-vendor" method="POST" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="form-group pb-2">
+                        <label><b>Username:</b></label>
+                        <input type="text" class="form-control" name="Name" placeholder="">
+                    </div>
+                    <div class="form-group pb-3">
+                        <label><b>Password:</b></label>
+                        <input type="password" class="form-control" name="Password" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label><b>Address:</b></label>
+                        <input type="text" class="form-control" name="Address" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label><b>Store name:</b></label>
+                        <input type="text" class="form-control" name="Storename" style="text-transform: uppercase;" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label><b>Extra Info:</b></label>
+                        <input type="text" class="form-control" name="Extrainfo" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label><b>Phone:</b></label>
+                        <input type="tel" class="form-control" name="Phone" placeholder="">
+                    </div>
+                </div>
+                <div class="im-ar col-md-4">
+                    
+                </div>
+                <div class="m-auto pt-3">
+                    <button type="submit" class="btn btn-primary m-auto" style="width: 12rem;">Create</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+
+<style>
+    body {
+        font-family: 'Montserrat', sans-serif;
+        margin-top: 3rem;
+    }
+
+    .form-control {
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid #9b9b9b;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        border-radius: 0;
+        height: 20px;
+    }
+
+    .form-control:focus {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+
+    .btn {
+        width: 8rem;
+    }
+
+    input[type="file"] {
+        display: none;
+    }
+
+    img {
+        border-radius: 50%;
+        width: 250px;
+        height: 250px;
+        margin: 0;
+        margin-left: 3rem;
+    }
+
+    .btn-plc {
+        margin-left: 7rem;
+    }
+</style>
