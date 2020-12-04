@@ -42,11 +42,11 @@ router.post('/login', (req, res) => {
     }
   })
 })
-router.get('/settings',async(req, res) => {
+router.get('/settings', async (req, res) => {
   let admin = req.session.user
-  let banned=await adminHelpers.banVendorDetails()
+  let banned = await adminHelpers.banVendorDetails()
   if (admin) {
-    res.render('admin/settings', {admin,banned})
+    res.render('admin/settings', { admin, banned })
   } else {
     res.redirect('/admin')
   }
@@ -76,42 +76,42 @@ router.post('/add-vendor', (req, res) => {
     })
   })
 })
-router.get('/delete-vendor/:id',(req,res)=>{
-  let proId=req.params.id
-  adminHelpers.deleteVendor(proId).then((response)=>{
+router.get('/delete-vendor/:id', (req, res) => {
+  let proId = req.params.id
+  adminHelpers.deleteVendor(proId).then((response) => {
     res.redirect('/admin')
   })
 })
-router.get('/edit-vendor/',async(req,res)=>{
- let venId=req.query.id
- let vendor=await adminHelpers.getVenderDetails(venId)
-   console.log(vendor);
-   res.render('admin/edit-vendor',{vendor})
+router.get('/edit-vendor/', async (req, res) => {
+  let venId = req.query.id
+  let vendor = await adminHelpers.getVenderDetails(venId)
+  console.log(vendor);
+  res.render('admin/edit-vendor', { vendor })
 })
-router.post('/edit-vendor/:id',(req,res)=>{
-  let id=req.params.id
-  adminHelpers.updateVendor(req.params.id,req.body).then(()=>{
+router.post('/edit-vendor/:id', (req, res) => {
+  let id = req.params.id
+  adminHelpers.updateVendor(req.params.id, req.body).then(() => {
     res.redirect('/admin')
-    if(req.files.Image){
+    if (req.files.Image) {
       let image = req.files.Image
       image.mv('./public/vendor-images/' + id + '.jpg',)
       console.log("image success");
-    }else{
+    } else {
       console.log("image upload error");
     }
   })
 })
-router.get('/ban-vendor/',async(req,res)=>{
+router.get('/ban-vendor/', async (req, res) => {
   let venId = req.query.id
-  let vendor =await adminHelpers.getVenderDetails(venId)
-  adminHelpers.banVendor(venId,vendor).then((response)=>{
+  let vendor = await adminHelpers.getVenderDetails(venId)
+  adminHelpers.banVendor(venId, vendor).then((response) => {
     res.redirect('/admin')
   })
 })
-router.get('/admin/unban-vendor/',async(req,res)=>{
-  let venId=req.query.id
-  let vendor =await adminHelpers.getBannedVenderDetails(venId)
-  adminHelpers.unbanVendor(venId,vendor).then((response)=>{
+router.get('/admin/unban-vendor/', async (req, res) => {
+  let venId = req.query.id
+  let vendor = await adminHelpers.getBannedVenderDetails(venId)
+  adminHelpers.unbanVendor(venId, vendor).then((response) => {
     res.redirect('/admin')
   })
 })

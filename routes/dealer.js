@@ -1,6 +1,13 @@
 var express = require('express');
 var router = express.Router();
 const dealerHelpers=require('../helpers/dealer-helper')
+const verifyLogin = (req, res, next) => {
+  if (req.session.logedIn) {
+    next()
+  } else {
+    res.redirect('/dealer/login')
+  }
+}
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -36,11 +43,14 @@ router.post('/login',(req,res)=>{
       })
     }
   })
-  })
-  
+})
 router.get('/logout',(req,res)=>{
   req.session.destroy()
   res.redirect('/dealer')
+})
+router.get('/order-history',verifyLogin,(req,res)=>{
+  let dealer=req.session.dealer
+  res.render('dealer/order-history',{dealer})
 })
 
 module.exports = router;
