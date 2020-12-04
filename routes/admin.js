@@ -115,4 +115,5 @@ router.get('/admin/unban-vendor/', async (req, res) => {
     res.redirect('/admin')
   })
 })
+
 module.exports = router;

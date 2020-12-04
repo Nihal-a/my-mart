@@ -63,5 +63,7 @@ router.get('/users',verifyLogin,(req,res)=>{
 router.get('/dealer/add-user',verifyLogin,(req,res)=>{
   res.render('dealer/add-user',)
 })
-
+router.get('/dealer/edit-user',verifyLogin,(req,res)=>{
+  res.render('dealer/edit-user',)
+})
 module.exports = router;
