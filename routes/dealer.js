@@ -52,5 +52,9 @@ router.get('/order-history',verifyLogin,(req,res)=>{
   let dealer=req.session.dealer
   res.render('dealer/order-history',{dealer})
 })
+router.get('/feedback',verifyLogin,(req,res)=>{
+  let dealer=req.session.dealer
+  res.render('dealer/feedback',{dealer})
+})
 
 module.exports = router;
