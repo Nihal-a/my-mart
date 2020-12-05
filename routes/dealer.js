@@ -10,7 +10,7 @@ const verifyLogin = (req, res, next) => {
 }
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/',verifyLogin, function(req, res, next) {
   let dealer=req.session.dealer
   if(dealer){
     res.render('dealer/dealer-dashboard',{dealer})
