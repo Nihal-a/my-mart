@@ -4,13 +4,13 @@ var router = express.Router();
 const adminHelpers = require('../helpers/admin-helper')
 /* GET users listing. */
 const verifyLogin = (req, res, next) => {
-  if (req.session.logedIn) {
+  if (req.session.logedIn = true) {
     next()
   } else {
     res.redirect('/admin/login')
   }
 }
-router.get('/', function (req, res, next) {
+router.get('/',verifyLogin, function (req, res, next) {
   let admin = req.session.user
   if (admin) {
     adminHelpers.getAllVendors().then((vendors) => {
@@ -42,7 +42,7 @@ router.post('/login', (req, res) => {
     }
   })
 })
-router.get('/settings', async (req, res) => {
+router.get('/settings',verifyLogin, async (req, res) => {
   let admin = req.session.user
   let banned = await adminHelpers.banVendorDetails()
   if (admin) {
@@ -52,10 +52,12 @@ router.get('/settings', async (req, res) => {
   }
 })
 router.get('/logout', (req, res) => {
+  req.session.logedIn = false
   req.session.destroy()
   res.redirect('/admin')
 })
 router.get('/admin/logout', (req, res) => {
+  req.session.logedIn = false
   req.session.destroy()
   res.redirect('/admin')
 })
@@ -76,19 +78,19 @@ router.post('/add-vendor', (req, res) => {
     })
   })
 })
-router.get('/delete-vendor/:id', (req, res) => {
+router.get('/delete-vendor/:id',verifyLogin, (req, res) => {
   let proId = req.params.id
   adminHelpers.deleteVendor(proId).then((response) => {
     res.redirect('/admin')
   })
 })
-router.get('/edit-vendor/', async (req, res) => {
+router.get('/edit-vendor/',verifyLogin, async (req, res) => {
   let venId = req.query.id
   let vendor = await adminHelpers.getVenderDetails(venId)
   console.log(vendor);
   res.render('admin/edit-vendor', { vendor })
 })
-router.post('/edit-vendor/:id', (req, res) => {
+router.post('/edit-vendor/:id',verifyLogin, (req, res) => {
   let id = req.params.id
   adminHelpers.updateVendor(req.params.id, req.body).then(() => {
     res.redirect('/admin')
@@ -101,14 +103,14 @@ router.post('/edit-vendor/:id', (req, res) => {
     }
   })
 })
-router.get('/ban-vendor/', async (req, res) => {
+router.get('/ban-vendor/',verifyLogin, async (req, res) => {
   let venId = req.query.id
   let vendor = await adminHelpers.getVenderDetails(venId)
   adminHelpers.banVendor(venId, vendor).then((response) => {
     res.redirect('/admin')
   })
 })
-router.get('/admin/unban-vendor/', async (req, res) => {
+router.get('/admin/unban-vendor/',verifyLogin, async (req, res) => {
   let venId = req.query.id
   let vendor = await adminHelpers.getBannedVenderDetails(venId)
   adminHelpers.unbanVendor(venId, vendor).then((response) => {
