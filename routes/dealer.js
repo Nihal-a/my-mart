@@ -48,6 +48,10 @@ router.get('/logout',(req,res)=>{
   req.session.destroy()
   res.redirect('/dealer')
 })
+router.get('/dealer/logout',(req,res)=>{
+  req.session.destroy()
+  res.redirect('/dealer')
+})
 router.get('/order-history',verifyLogin,(req,res)=>{
   let dealer=req.session.dealer
   res.render('dealer/order-history',{dealer})
@@ -60,10 +64,17 @@ router.get('/users',verifyLogin,(req,res)=>{
   let dealer=req.session.dealer
   res.render('dealer/users',{dealer})
 })
+router.get('/settings',verifyLogin,(req,res)=>{
+  let dealer=req.session.dealer
+  res.render('dealer/settings',{dealer})
+})
 router.get('/dealer/add-user',verifyLogin,(req,res)=>{
-  res.render('dealer/add-user',)
+  let dealer=req.session.dealer
+  res.render('dealer/add-user',{dealer})
 })
 router.get('/dealer/edit-user',verifyLogin,(req,res)=>{
-  res.render('dealer/edit-user',)
+  let dealer=req.session.dealer
+  res.render('dealer/edit-user',{dealer})
 })
+
 module.exports = router;

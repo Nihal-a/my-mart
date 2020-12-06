@@ -1,0 +1,128 @@
+<div class="main-content">
+  <div class="container-fluid content-top-gap">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb my-breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Users</li>
+      </ol>
+    </nav>
+    
+    <h4 class="p-2">Banned Users.</h4>
+    {{!-- table start --}}
+    <section id="table">
+      <div class="container">
+        <table class="table">
+          <thead>
+            <tr>
+            <th scope="col">Name</th>
+              <th scope="col">Address</th>
+              <th scope="col">No. of Orders</th>
+              <th scope="col" class="act">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-transform: uppercase;"><b>Pranav</b><br>9865321470</td>
+              <td>Malappuram,Kerala</td>
+              <td>
+                <b>10</b><br>
+              </td>
+              <td>
+                <a href="dealer/ban-user?id={{this._id}}" class="btn btn-ban">UNBAN</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    {{!-- table end --}}
+    <style>
+      body {
+        font-family: 'Montserrat', sans-serif;
+      }
+
+      .my-logo {
+        font-size: 1.7rem;
+        font-weight: 600;
+        color: #53B175;
+      }
+
+      .arrow {
+        border: solid #fff;
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 3px;
+      }
+
+      .right {
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+      }
+
+      .logout-text {
+        text-decoration: none;
+        color: #fff;
+      }
+
+      .logout-text:hover {
+        text-decoration: none;
+        color: #fff;
+      }
+
+      .logo-area {
+        width: fit-content;
+        height: auto;
+      }
+
+      .btn-primary {
+        font-family: 'Montserrat', sans-serif;
+      }
+
+      .nav {
+        font-family: 'Montserrat', sans-serif;
+      }
+
+      .btn-edit {
+        background-color: #53B175;
+        border-radius: 30px;
+        width: 90px;
+        height: 35px;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        font-family: 'Montserrat', sans-serif;
+        color: #fff;
+      }
+
+      .btn-delete {
+        background-color: #9c0000;
+        border-radius: 30px;
+        width: 90px;
+        height: 35px;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        font-family: 'Montserrat', sans-serif;
+        color: #fff;
+      }
+
+      .btn-ban {
+        background-color: #8fad06ec;
+        border-radius: 30px;
+        width: 90px;
+        height: 35px;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        font-family: 'Montserrat', sans-serif;
+        color: #fff;
+      }
+
+      #table {
+        background-color: #fff;
+        margin-top: 5px;
+        border-radius: 20px;
+        box-shadow: 2px 2px 2px rgb(116, 115, 115);
+      }
+    </style>
+    
