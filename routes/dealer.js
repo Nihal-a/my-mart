@@ -1,16 +1,23 @@
 var express = require('express');
 var router = express.Router();
 const dealerHelpers=require('../helpers/dealer-helper')
-const verifyLogin = (req, res, next) => {
-  if (req.session.logedIn) {
+// const verifyLogin = (req, res, next) => {
+//   if (req.session.logedIn) {
+//     next()
+//   } else {
+//     res.redirect('/dealer/login')
+//   }
+// }
+const verifyLogIn=((req,res,next)=>{
+  if(req.session.logedIn){
     next()
-  } else {
-    res.redirect('/dealer/login')
+  }else{
+    res.render('/dealer')
   }
-}
+})
 
 /* GET home page. */
-router.get('/',verifyLogin, function(req, res, next) {
+router.get('/', function(req, res, next) {
   let dealer=req.session.dealer
   if(dealer){
     res.render('dealer/dealer-dashboard',{dealer})
@@ -45,34 +52,31 @@ router.post('/login',(req,res)=>{
   })
 })
 router.get('/logout',(req,res)=>{
+  req.session.logedIn=false
   req.session.destroy()
   res.redirect('/dealer')
 })
-router.get('/dealer/logout',(req,res)=>{
-  req.session.destroy()
-  res.redirect('/dealer')
-})
-router.get('/order-history',verifyLogin,(req,res)=>{
+router.get('/order-history',(req,res)=>{
   let dealer=req.session.dealer
   res.render('dealer/order-history',{dealer})
 })
-router.get('/feedback',verifyLogin,(req,res)=>{
+router.get('/feedback',(req,res)=>{
   let dealer=req.session.dealer
   res.render('dealer/feedback',{dealer})
 })
-router.get('/users',verifyLogin,(req,res)=>{
+router.get('/users',(req,res)=>{
   let dealer=req.session.dealer
   res.render('dealer/users',{dealer})
 })
-router.get('/settings',verifyLogin,(req,res)=>{
+router.get('/settings',(req,res)=>{
   let dealer=req.session.dealer
   res.render('dealer/settings',{dealer})
 })
-router.get('/dealer/add-user',verifyLogin,(req,res)=>{
+router.get('/dealer/add-user',(req,res)=>{
   let dealer=req.session.dealer
   res.render('dealer/add-user',{dealer})
 })
-router.get('/dealer/edit-user',verifyLogin,(req,res)=>{
+router.get('/dealer/edit-user',(req,res)=>{
   let dealer=req.session.dealer
   res.render('dealer/edit-user',{dealer})
 })

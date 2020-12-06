@@ -56,11 +56,6 @@ router.get('/logout', (req, res) => {
   req.session.destroy()
   res.redirect('/admin')
 })
-router.get('/admin/logout', (req, res) => {
-  req.session.logedIn = false
-  req.session.destroy()
-  res.redirect('/admin')
-})
 router.get('/add-vendor', verifyLogin, (req, res) => {
   res.render('admin/add-vendor')
 })
