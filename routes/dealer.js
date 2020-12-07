@@ -12,7 +12,7 @@ const verifyLogIn=((req,res,next)=>{
   if(req.session.logedIn){
     next()
   }else{
-    res.render('/dealer')
+    res.render('dealer/login')
   }
 })
 
@@ -56,33 +56,36 @@ router.get('/logout',(req,res)=>{
   req.session.destroy()
   res.redirect('/dealer')
 })
-router.get('/order-history',(req,res)=>{
+router.get('/order-history',verifyLogIn,(req,res)=>{
   let dealer=req.session.dealer
   res.render('dealer/order-history',{dealer})
 })
-router.get('/feedback',(req,res)=>{
+router.get('/feedback',verifyLogIn,(req,res)=>{
   let dealer=req.session.dealer
   res.render('dealer/feedback',{dealer})
 })
-router.get('/users',(req,res)=>{
+router.get('/users',verifyLogIn,(req,res)=>{
   let dealer=req.session.dealer
   res.render('dealer/users',{dealer})
 })
-router.get('/settings',(req,res)=>{
+router.get('/settings',verifyLogIn,(req,res)=>{
   let dealer=req.session.dealer
   res.render('dealer/settings',{dealer})
 })
-router.get('/dealer/add-user',(req,res)=>{
+router.get('/dealer/add-user',verifyLogIn,(req,res)=>{
   let dealer=req.session.dealer
   res.render('dealer/add-user',{dealer})
 })
-router.get('/dealer/edit-user',(req,res)=>{
+router.get('/dealer/edit-user',verifyLogIn,(req,res)=>{
   let dealer=req.session.dealer
   res.render('dealer/edit-user',{dealer})
 })
-router.get('/products',(req,res)=>{
+router.get('/products',verifyLogIn,(req,res)=>{
   let dealer=req.session.dealer
   res.render('dealer/products',{dealer})
+})
+router.get('/dealer/add-products',verifyLogIn,(req,res)=>{
+  res.render('dealer/add-products')
 })
 
 module.exports = router;
