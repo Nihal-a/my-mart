@@ -1,0 +1,91 @@
+<section>
+    <div class="container">
+        <div class="pb-2" style="width: 100%;height: auto;">
+            <h4 class="dl-txt pb-4"><b>New Dealer.</b></h4>
+        </div>
+        <form action="/admin/add-vendor" method="POST" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="form-group pb-2">
+                        <label><b>Name:</b></label>
+                        <input type="text" class="form-control" name="Name" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label><b>Category:</b></label>
+                        <input type="text" class="form-control" name="Category" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label><b>Price:</b></label><br>
+                        <div class="row">
+                        <div class="pl-3">&#x20B9;</div><div class=""><input type="number" class="form-control" name="Price" class="rupee" placeholder=""  min="0.00" max="10000.00"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label><b>Total Stock:</b></label>
+                        <input type="number" class="form-control" name="TotalStock" placeholder="">
+                    </div>
+                </div>
+                <div class="im-ar col-md-4">
+                    <div class="img-area">
+                        <img src="/images/no-image.jpg" alt="Avatar" id="imgView">  
+                    </div>
+                    <div class="btn-plc pt-4">
+                        <label for="file" class="btn btn-primary">Add Image</label>
+                        <input type="file" id="file" name="Image" accept="image/*" onchange="viewImage(event)">
+                    </div>
+                </div>
+                <div class="m-auto pt-3">
+                    <button type="submit" class="btn btn-primary m-auto" style="width: 12rem;">Create</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+
+<style>
+    body {
+        font-family: 'Montserrat', sans-serif;
+        margin-top: 3rem;
+    }
+
+    .form-control {
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid #9b9b9b;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        border-radius: 0;
+        height: 20px;
+    }
+
+    .form-control:focus {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+
+    .btn {
+        width: 8rem;
+    }
+
+    input[type="file"] {
+        display: none;
+    }
+
+    img {
+        border-radius: 50%;
+        width: 250px;
+        height: 250px;
+        margin: 0;
+        margin-left: 3rem;
+    }
+
+    .btn-plc {
+        margin-left: 7rem;
+    }
+</style>
+<script>
+    function viewImage(event){
+        document.getElementById('imgView').src=URL.createObjectURL(event.target.files[0])
+    }
+</script>
