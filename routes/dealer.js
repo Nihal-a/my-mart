@@ -80,5 +80,9 @@ router.get('/dealer/edit-user',(req,res)=>{
   let dealer=req.session.dealer
   res.render('dealer/edit-user',{dealer})
 })
+router.get('/products',(req,res)=>{
+  let dealer=req.session.dealer
+  res.render('dealer/products',{dealer})
+})
 
 module.exports = router;

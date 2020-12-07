@@ -1,0 +1,198 @@
+<div class="main-content">
+    <div class="container-fluid content-top-gap">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb my-breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Products</li>
+                <div class="welcome-msg pb-3 ml-auto">
+                    <a href="admin/add-vendor" class="btn btn-primary">Create Item<i class="fas fa-plus ml-1"></i></a>
+                </div>
+            </ol>
+        </nav>
+
+        <h4 class="p-2">Products.</h4>
+        {{!-- table start --}}
+        <section id="table">
+            <div class="container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Image</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">Left</th>
+                            <th scope="col"><span class="ml-5">Actions</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><img src="/images/apple.png" alt="" style="width: 50px; height: 50px;"></td>
+                            <td style="text-transform: uppercase;"><b>Apple</b></td>
+                            <td>Fruits</td>
+                            <td><b>₹</b>40.00</td>
+                            <td class="text-primary">20</td>
+                            <td class="text-secondary">10</td>
+                            <td class="ac-td" >
+                                <div class="row">
+                                    <div class="pr-2 pl-2">
+                                        <div class="pb-1">
+                                            <a href="admin/edit-vendor?id={{this._id}}"
+                                                class="btn btn-edit">EDIT</a><br>
+                                        </div>
+                                        <div class="pt-1">
+                                            <a href="admin/ban-vendor?id={{this._id}}" class="btn btn-ban">STOCK</a>
+                                        </div>
+                                    </div>
+                                    <div class="pl-2">
+                                        <div class="pb-1">
+                                            <a href="admin/edit-vendor?id={{this._id}}"
+                                                class="btn btn-disable">DISABLE</a><br>
+                                        </div>
+                                        <div class="pt-1">
+                                            <a href="admin/ban-vendor?id={{this._id}}" class="btn btn-delete">DELETE</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><img src="/images/apple.png" alt="" style="width: 50px; height: 50px;"></td>
+                            <td style="text-transform: uppercase;"><b>Apple</b></td>
+                            <td>Fruits</td>
+                            <td><b>₹</b>40.00</td>
+                            <td class="text-primary">20</td>
+                            <td class="text-secondary">10</td>
+                            <td class="ac-td" >
+                                <div class="row">
+                                    <div class="pr-2 pl-2">
+                                        <div class="pb-1">
+                                            <a href="admin/edit-vendor?id={{this._id}}"
+                                                class="btn btn-edit">EDIT</a><br>
+                                        </div>
+                                        <div class="pt-1">
+                                            <a href="admin/ban-vendor?id={{this._id}}" class="btn btn-ban">STOCK</a>
+                                        </div>
+                                    </div>
+                                    <div class="pl-2">
+                                        <div class="pb-1">
+                                            <a href="admin/edit-vendor?id={{this._id}}"
+                                                class="btn btn-disable">DISABLE</a><br>
+                                        </div>
+                                        <div class="pt-1">
+                                            <a href="admin/ban-vendor?id={{this._id}}" class="btn btn-delete">DELETE</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        {{!-- table end --}}
+        <style>
+            body {
+                font-family: 'Montserrat', sans-serif;
+            }
+
+            .my-logo {
+                font-size: 1.7rem;
+                font-weight: 600;
+                color: #53B175;
+            }
+
+            .arrow {
+                border: solid #fff;
+                border-width: 0 3px 3px 0;
+                display: inline-block;
+                padding: 3px;
+            }
+
+            .right {
+                transform: rotate(-45deg);
+                -webkit-transform: rotate(-45deg);
+            }
+
+            .logout-text {
+                text-decoration: none;
+                color: #fff;
+            }
+
+            .logout-text:hover {
+                text-decoration: none;
+                color: #fff;
+            }
+
+            .logo-area {
+                width: fit-content;
+                height: auto;
+            }
+
+            .btn-primary {
+                font-family: 'Montserrat', sans-serif;
+            }
+
+            .nav {
+                font-family: 'Montserrat', sans-serif;
+            }
+
+            .btn-edit {
+                background-color: #53B175;
+                border-radius: 30px;
+                width: 90px;
+                height: 35px;
+                font-size: 14px;
+                font-weight: 600;
+                letter-spacing: 1px;
+                font-family: 'Montserrat', sans-serif;
+                color: #fff;
+            }
+
+            .btn-delete {
+                background-color: #9c0000;
+                border-radius: 30px;
+                width: 90px;
+                height: 35px;
+                font-size: 14px;
+                font-weight: 600;
+                letter-spacing: 1px;
+                font-family: 'Montserrat', sans-serif;
+                color: #fff;
+            }
+            .btn-disable {
+                background-color: #aca000;
+                border-radius: 30px;
+                width: 90px;
+                height: 35px;
+                font-size: 14px;
+                font-weight: 600;
+                letter-spacing: 1px;
+                font-family: 'Montserrat', sans-serif;
+                color: #fff;
+            }
+
+            .btn-ban {
+                background-color: #8fad06ec;
+                border-radius: 30px;
+                width: 90px;
+                height: 35px;
+                font-size: 14px;
+                font-weight: 600;
+                letter-spacing: 1px;
+                font-family: 'Montserrat', sans-serif;
+                color: #fff;
+            }
+
+            #table {
+                background-color: #fff;
+                margin-top: 5px;
+                border-radius: 20px;
+                box-shadow: 2px 2px 2px rgb(116, 115, 115);
+            }
+            .table th,
+            .table td {
+                vertical-align: middle;
+            }
+        </style>
