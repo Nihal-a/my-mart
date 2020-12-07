@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
+var userRouter = require('./routes/user');
 var adminRouter = require('./routes/admin');
 var dealerRouter = require('./routes/dealer');
 var hbs = require('express-handlebars')
@@ -29,7 +29,7 @@ db.connect((err)=>{
 })
 
 
-app.use('/', indexRouter);
+app.use('/', userRouter);
 app.use('/admin', adminRouter);
 app.use('/dealer',dealerRouter);
 
