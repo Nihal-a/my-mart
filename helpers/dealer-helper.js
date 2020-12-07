@@ -37,5 +37,10 @@ module.exports={
                 resolve(status=false)
             }
         })
+    },
+    addProduct:(proDetails)=>{
+        return new Promise((resolve,reject)=>{
+            
+        })
     }
 }

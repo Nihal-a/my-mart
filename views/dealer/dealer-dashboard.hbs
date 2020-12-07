@@ -37,7 +37,7 @@
                                 </div>
                             </th>
                             <th>
-                                <a href="" class="btn btn-info">View</a>
+                                <a href="" class="btn btn-info" data-toggle="modal" data-target="#myModal">View</a>
                             </th>
                             <th>
                                 <a href="" class="btn btn-secondary">Submit</a>
@@ -102,8 +102,7 @@
                     <thead>
                         <tr>
                             <th scope="col">
-                                <p class="address-p" style="font-size: 13px;color: #fff;">Flat No. 32<br>Highlight Mall
-                                </p>
+                                <p class="address-p" style="font-size: 13px;color: #fff;">Flat No. 32<br>Highlight Mall</p>
                             </th>
                             <th scope="col" style="font-size: 14px;color: #fff;">Shibu Das</th>
                             <th scope="col" style="font-size: 10px; color: #fff;">Created on: <br> Just Now</th>
@@ -176,6 +175,102 @@
                 </div>
             </div>
         </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="model-area">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                            </div>
+                            <div class="col-md-10">
+                                <div class="order-id">
+                                    <h6 class="p-2">ORDER ID : 58yhn6i8</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="ord-list">
+                                        <div class="container">
+                                            <table class="table table-sm">
+                                                <tbody>
+                                                    <tr class="mt-5">
+                                                        <td><img src="/images/apple.png" alt=""
+                                                                style="width: 25px; height: 25px;"></td>
+                                                        <td style="text-transform: uppercase; color: #fff; ">
+                                                            <b>Apple</b></td>
+                                                        <td style="color: #fff;">10 Nos</td>
+                                                        <td style="color: #fff;"><b>₹</b>40.00</td>
+                                                    </tr>
+                                                    <tr class="mt-5">
+                                                        <td><img src="/images/apple.png" alt=""
+                                                                style="width: 25px; height: 25px;"></td>
+                                                        <td style="text-transform: uppercase; color: #fff; ">
+                                                            <b>Apple</b></td>
+                                                        <td style="color: #fff;">10 Nos</td>
+                                                        <td style="color: #fff;"><b>₹</b>40.00</td>
+                                                    </tr>
+                                                    <tr class="mt-5">
+                                                        <td><img src="/images/apple.png" alt=""
+                                                                style="width: 25px; height: 25px;"></td>
+                                                        <td style="text-transform: uppercase; color: #fff; ">
+                                                            <b>Apple</b></td>
+                                                        <td style="color: #fff;">10 Nos</td>
+                                                        <td style="color: #fff;"><b>₹</b>40.00</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="container">
+                                            <div class="rate-area">
+                                                <table class="table table-borderless">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td style="font-size: 10px;"><b>TOTAL ITEM :</b></td>
+                                                            <td style="font-size: 10px;"><b>14</b></td>
+                                                            <td style="font-size: 10px;"><b>TOTAL COST :</b></td>
+                                                            <td style="font-size: 10px;"><b>₹459</b></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="mt-5" > 
+                                        <h6 style="color: #3e8e41;">Non Contact Delivery<i class="fas fa-check ml-1"></i></h6>
+                                    </div>
+                                    <div class="mt-5">
+                                        <p class="address-p" style="font-size: 18px;color:#3e8e41;line-height: 22px;">Flat No. 32<br>Highlight Mall</p>
+                                    </div>
+                                    <div class="mt-5">
+                                        <h6 style="color: #3e8e41;">Mode of Payment :  paypal</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
     </div>
 
 </section>
@@ -280,4 +375,47 @@
         vertical-align: bottom;
         border-bottom: 0px solid #dee2e6;
     }
+
+    .order-id {
+        border: 2px solid #111;
+        width: 100%;
+    }
+
+    .model-area {
+        margin: 0;
+        padding: 0;
+        width: 51rem;
+    }
+
+    .modal {
+        position: absolute;
+        top: 0;
+        left: 0px;
+        z-index: 1050;
+        display: none;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        outline: 0;
+    }
+
+    .ord-list {
+        width: 30rem;
+        height: 24rem;
+        background-color: #468d60;
+        border-radius: 10px;
+    }
+
+    .rate-area {
+        width: 82%;
+        height: 36px;
+        background-color: #ffffff;
+        border-radius: 14px;
+        position: absolute;
+        bottom: 8px;
+        overflow: hidden;
+    }
+    
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>

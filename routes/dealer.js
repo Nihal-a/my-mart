@@ -58,7 +58,7 @@ router.get('/logout',(req,res)=>{
 })
 router.get('/order-history',verifyLogIn,(req,res)=>{
   let dealer=req.session.dealer
-  res.render('dealer/order-history',{dealer})
+  res.render('dealer/order-history',{dealer,view:true})
 })
 router.get('/feedback',verifyLogIn,(req,res)=>{
   let dealer=req.session.dealer
@@ -87,5 +87,7 @@ router.get('/products',verifyLogIn,(req,res)=>{
 router.get('/dealer/add-products',verifyLogIn,(req,res)=>{
   res.render('dealer/add-products')
 })
-
+router.post('/dealer/add-products',verifyLogIn,(req,res)=>{
+  dealerHelpers.addProduct(req.body)
+})
 module.exports = router;
