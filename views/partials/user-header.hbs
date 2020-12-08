@@ -1,40 +1,96 @@
 <header>
-    <div class="header">
-        <div class="container">
-                <div class="logo-area">
-                    <h4 class="logo">MY MART</h4>
-                </div>
-                <div class="navItems">
-                    
-                </div>
+    <div class="container">
+        <nav>
+            <div class="logo">
+                <a href="">
+                    <h4 class="logo mt-3">MY MART</h4>
+                </a>
             </div>
-        </div>
+            <div class="navbar">
+                <ul>
+                    <li><a href="">a</a></li>
+                    <li><a href="">
+                            <div id="ex4">
+                                <span class="p1 fa-stack fa-2x has-badge" data-count="4">
+                                    {{!-- <i class="p2 fa fa-circle fa-stack-2x"></i> --}}
+                                    <i class="p3 fa fa-shopping-cart fa-stack-1x xfa-inverse"
+                                        style="color: #53B175; font-size: 22px;" data-count="4b"></i>
+                                </span>
+                            </div>
+                        </a></li>
+                    <li><a href="">c</a></li>
+                </ul>
+            </div>
+        </nav>
     </div>
 </header>
 <hr>
 
 
-
 <style>
-    .header {
-        width: 100%;
-        height: 25px;
-        background-color: #fff;
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
     }
-    .navitems{
-        background-color: aqua;
-    }
-    .logo{
+
+    .logo {
         color: #53B175;
         font-size: 1.7rem;
-        margin-top: 1rem;
-        font-weight: 600;
-        cursor: pointer;
+        font-weight: 700;
     }
-    .navItems{
-        
+
+    header nav {
+        display: flex;
+        justify-content: space-between;
     }
-    hr{
-        margin-bottom: 0rem;
+
+
+
+    ul {
+        list-style: none;
+    }
+
+    .navbar ul {
+        display: flex;
+    }
+
+    #ex4 .p1[data-count]:after {
+        position: absolute;
+        right: 20%;
+        top: 12%;
+        content: attr(data-count);
+        font-size: 37%;
+        padding: .2em;
+        border-radius: 43%;
+        line-height: 1em;
+        color: white;
+        background: rgba(255, 0, 0, 0.85);
+        text-align: center;
+        min-width: 1.2em;
+    }
+
+    .fa-2x {
+        font-size: 25px;
+    }
+
+    .navbar {
+        padding: 0px;
+    }
+
+    .fa-stack {
+        display: inline-block;
+        height: 2em;
+        line-height: 1.7em;
+        position: relative;
+        vertical-align: middle;
+        width: 2.5em;
+    }
+
+    hr {
+        margin-top: -1rem;
+        margin-bottom: 1rem;
+        border: 0;
+        border-top: 1px solid rgba(0, 0, 0, .1);
     }
 </style>
