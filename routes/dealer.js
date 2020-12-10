@@ -91,9 +91,15 @@ router.get('/add-products',verifyLogIn,(req,res)=>{
 router.post('/add-product',verifyLogIn,(req,res)=>{
   let dealerId=req.session.dealer._id
   console.log(req.files.Image);
-  dealerHelper.addProduct(dealerId,req.body).then(()=>{
-    res.redirect('/dealer')
+  dealerHelper.addProduct(dealerId,req.body).then((id)=>{
+    let image = req.files.Image
+    image.mv('./public/product-images/' + id + '.jpg', (err, done) => {
+      if (!err) {
+        res.redirect('/dealer')
+      } else {
+        console.log(err);
+      }
+    })
   })
-  
 })
 module.exports = router;

@@ -55,8 +55,8 @@ module.exports={
                     vendor:(objectId(venId)),
                     products:[proDetails]
                 }
-                db.get().collection(collection.PRODUCT_COLLECTION).insertOne(productObj).then((response)=>{
-                    resolve()
+                db.get().collection(collection.PRODUCT_COLLECTION).insertOne(productObj).then((data)=>{
+                    resolve(data.ops[0]._id)
                 })
             }
         })
