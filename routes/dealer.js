@@ -1,4 +1,5 @@
 var express = require('express');
+const dealerHelper = require('../helpers/dealer-helper');
 var router = express.Router();
 const dealerHelpers=require('../helpers/dealer-helper')
 // const verifyLogin = (req, res, next) => {
@@ -84,10 +85,15 @@ router.get('/products',verifyLogIn,(req,res)=>{
   let dealer=req.session.dealer
   res.render('dealer/products',{dealer})
 })
-router.get('/dealer/add-products',verifyLogIn,(req,res)=>{
+router.get('/add-products',verifyLogIn,(req,res)=>{
   res.render('dealer/add-products')
 })
-router.post('/dealer/add-products',verifyLogIn,(req,res)=>{
-  dealerHelpers.addProduct(req.body)
+router.post('/add-product',verifyLogIn,(req,res)=>{
+  let dealerId=req.session.dealer._id
+  console.log(req.files.Image);
+  dealerHelper.addProduct(dealerId,req.body).then(()=>{
+    res.redirect('/dealer')
+  })
+  
 })
 module.exports = router;

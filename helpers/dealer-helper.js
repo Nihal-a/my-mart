@@ -38,9 +38,27 @@ module.exports={
             }
         })
     },
-    addProduct:(proDetails)=>{
-        return new Promise((resolve,reject)=>{
-            
+    addProduct:(venId,proDetails)=>{
+        return new Promise(async(resolve,reject)=>{
+            let venderProducts = await db.get().collection(collection.PRODUCT_COLLECTION).findOne({vendor:objectId(venId)})
+            if(venderProducts){
+                db.get().collection(collection.PRODUCT_COLLECTION)
+                .updateOne({vendor:objectId(venId)},
+                    {
+                        $push:{products:proDetails}
+                    }
+                ).then((response)=>{
+                    resolve()
+                })
+            }else{
+                let productObj = {
+                    vendor:(objectId(venId)),
+                    products:[proDetails]
+                }
+                db.get().collection(collection.PRODUCT_COLLECTION).insertOne(productObj).then((response)=>{
+                    resolve()
+                })
+            }
         })
     }
 }
