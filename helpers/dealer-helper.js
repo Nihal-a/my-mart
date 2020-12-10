@@ -47,7 +47,7 @@ module.exports={
                     {
                         $push:{products:proDetails}
                     }
-                ).then((response)=>{
+                ).then((data)=>{
                     resolve()
                 })
             }else{
@@ -55,8 +55,8 @@ module.exports={
                     vendor:(objectId(venId)),
                     products:[proDetails]
                 }
-                db.get().collection(collection.PRODUCT_COLLECTION).insertOne(productObj).then((data)=>{
-                    resolve(data.ops[0]._id)
+                db.get().collection(collection.PRODUCT_COLLECTION).insertOne(productObj).then(()=>{
+                    resolve()
                 })
             }
         })
