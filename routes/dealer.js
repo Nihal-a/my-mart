@@ -81,9 +81,13 @@ router.get('/dealer/edit-user',verifyLogIn,(req,res)=>{
   let dealer=req.session.dealer
   res.render('dealer/edit-user',{dealer})
 })
-router.get('/products',verifyLogIn,(req,res)=>{
+router.get('/products',verifyLogIn,async(req,res)=>{
   let dealer=req.session.dealer
-  res.render('dealer/products',{dealer})
+  let dealerId=req.session.dealer._id
+  let products=await dealerHelper.getVendorProduct(dealerId)
+  console.log("deal---",dealerId);
+  console.log("resol--",products);
+  res.render('dealer/products',{dealer,products})
 })
 router.get('/add-products',verifyLogIn,(req,res)=>{
   res.render('dealer/add-products')
@@ -93,8 +97,8 @@ router.post('/add-product',verifyLogIn,(req,res)=>{
   console.log(req.files.Image);
   dealerHelper.addProduct(dealerId,req.body).then(()=>{
     let image = req.files.Image
-    let Name=req.body.Name
-    image.mv('./public/product-images/' + dealerId + Name +'.jpg', (err, done) => {
+    let id=req.body._id
+    image.mv('./public/product-images/' + id +'.jpg', (err, done) => {
       if (!err) {
         res.redirect('/dealer/products')
       } else {
