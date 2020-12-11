@@ -40,7 +40,7 @@ module.exports = {
     },
     addProduct: (venId, proDetails) => {
         return new Promise(async (resolve, reject) => {
-            proDetails._id=objectId()
+            proDetails._id = objectId()
             let venderProducts = await db.get().collection(collection.PRODUCT_COLLECTION).findOne({ vendor: objectId(venId) })
             if (venderProducts) {
                 db.get().collection(collection.PRODUCT_COLLECTION)
@@ -67,13 +67,18 @@ module.exports = {
             let allProducts = await db.get().collection(collection.PRODUCT_COLLECTION).findOne({ vendor: (objectId(venId)) })
             if (allProducts) {
                 let products = allProducts.products
-                console.log("alllll", allProducts);
-                console.log("prooooooooooo", products);
                 resolve(products)
             } else {
                 resolve()
             }
-
+        })
+    },
+    getProductDetails: (venId, proId) => {
+        return new Promise(async (resolve, reject) => {
+            let proDetails = await db.get().collection(collection.PRODUCT_COLLECTION)
+            .findOne({vendor: objectId(venId)})
+            resolve(proDetails)
         })
     }
+
 }

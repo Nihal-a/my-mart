@@ -85,8 +85,6 @@ router.get('/products',verifyLogIn,async(req,res)=>{
   let dealer=req.session.dealer
   let dealerId=req.session.dealer._id
   let products=await dealerHelper.getVendorProduct(dealerId)
-  console.log("deal---",dealerId);
-  console.log("resol--",products);
   res.render('dealer/products',{dealer,products})
 })
 router.get('/add-products',verifyLogIn,(req,res)=>{
@@ -106,5 +104,12 @@ router.post('/add-product',verifyLogIn,(req,res)=>{
       }
     })
   })
+})
+router.get('/edit-product/',verifyLogIn,async(req,res)=>{
+  dealerId=req.session.dealer._id
+  proId=req.query.id
+  productDetails=await dealerHelpers.getProductDetails(dealerId,proId)
+  console.log("resolverd---",productDetails);
+  res.render('dealer/edit-product')
 })
 module.exports = router;
