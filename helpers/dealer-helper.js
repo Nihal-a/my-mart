@@ -76,8 +76,8 @@ module.exports = {
     getProductDetails: (venId, proId) => {
         return new Promise(async (resolve, reject) => {
             let proDetails = await db.get().collection(collection.PRODUCT_COLLECTION)
-            .findOne({vendor: objectId(venId)})
-            resolve(proDetails)
+            .find({vendor: objectId(venId)}).project({products:{$elemMatch:{_id:objectId(proId)}}}).toArray()
+            resolve(proDetails[0].products)
         })
     }
 

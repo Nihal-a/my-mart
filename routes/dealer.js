@@ -108,8 +108,8 @@ router.post('/add-product',verifyLogIn,(req,res)=>{
 router.get('/edit-product/',verifyLogIn,async(req,res)=>{
   dealerId=req.session.dealer._id
   proId=req.query.id
-  productDetails=await dealerHelpers.getProductDetails(dealerId,proId)
-  console.log("resolverd---",productDetails);
-  res.render('dealer/edit-product')
+  product=await dealerHelpers.getProductDetails(dealerId,proId)
+  console.log("resolverd---",product);
+  res.render('dealer/edit-product',{product})
 })
 module.exports = router;
