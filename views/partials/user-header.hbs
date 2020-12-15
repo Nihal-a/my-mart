@@ -1,109 +1,165 @@
-<header>
-  <div class="container">
-    <nav>
-      <div class="logo">
-        <a href="" style="text-decoration: none;">
-          <h4 class="logo mt-3">MY MART</h4>
-        </a>
-      </div>
-      <div class="navbar">
-        <ul>
-          <li>
-            <a href="">
-              <div id="ex4">
-                <span class="p1 fa-stack fa-2x has-badge" data-count="4">
-                  <i class="p3 fa fa-shopping-cart fa-stack-1x xfa-inverse pt-1" style="color: #111; font-size: 26px;"
-                    data-count="4b"></i>
-                </span>
-              </div>
-            </a>
-          </li>
-          <li>
-            <div class="mt-3">
-              <a href="">
-              <img src="/images/admin_login_img.png" class="rounded-circle" alt="profile" width="40px" height="40px">
-            </a>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </div>
-</header>
-<hr>
+<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 
+<div class="container">
+  <div class="navbar">
+    <div class="logo">
+      <a href="" style="text-decoration: none;">
+        <h4 class="logo mt-3">MY MART</h4>
+      </a>
+    </div>
+    <div class="nav_right">
+      <ul>
+        <li class="nr_li">
+          <i class="fas fa-envelope-open-text" style="color: #1d753e;"></i>
+        </li>
+        <li class="nr_li dd_main">
+          <div class="" style="width: fit-content;">
+            <img src="/images/admin_login_img.png" alt="profile_img" class="pt-3"><i class="fas fa-angle-down" style="color: #111;"></i>
+          </div>
+          
+
+          <div class="dd_menu">
+            <div class="dd_left">
+              <ul>
+                <li><i class="fas fa-map-marker-alt"></i></li>
+                <li><i class="far fa-star"></i></li>
+                <li><i class="far fa-plus-square"></i></li>
+                <li><i class="fas fa-cog"></i></li>
+                <li><i class="fas fa-download"></i></li>
+                <li><i class="fas fa-sign-out-alt"></i></li>
+              </ul>
+            </div>
+            <div class="dd_right">
+              <ul>
+                <li>Order History</li>
+                <li>Order Status</li>
+                <li>Logout</li>
+              </ul>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<hr>
 
 <style>
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    list-style: none;
+    font-family: 'Jost', sans-serif;
   }
+  hr{
+    margin-top: 0;
+  }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+  }
+
   .logo {
     color: #1d753e;
     font-size: 1.7rem;
     font-weight: 700;
-  }
-
-  header nav {
-    display: flex;
-    justify-content: space-between;
-  }
-
-
-
-  ul {
-    list-style: none;
-  }
-
-  .navbar ul {
-    display: flex;
-  }
-
-  #ex4 .p1[data-count]:after {
-    position: absolute;
-    right: 20%;
-    top: 12%;
-    content: attr(data-count);
-    font-size: 37%;
-    padding: .2em;
-    border-radius: 43%;
-    line-height: 1em;
-    color: white;
-    background: rgba(255, 0, 0, 0.85);
-    text-align: center;
-    min-width: 1.2em;
-  }
-
-  .fa-2x {
-    font-size: 25px;
+    font-family: 'Montserrat', sans-serif;
   }
 
   .navbar {
-    padding: 0px;
+    background: #fff;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
   }
 
-  .fa-stack {
-    display: inline-block;
-    height: 2em;
-    line-height: 1.7em;
+  .navbar .logo a {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 25px;
+    text-transform: uppercase;
+  }
+
+  .navbar .nav_right>ul {
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar .nav_right ul li.nr_li {
+    margin-left: 25px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 20px;
     position: relative;
-    vertical-align: middle;
-    width: 2.5em;
   }
 
-  hr {
-    margin-top: -1rem;
-    margin-bottom: 1rem;
-    border: 0;
-    border-top: 1px solid rgba(0, 0, 0, .1);
+  .navbar .nav_right ul li.nr_li:hover {
+    color: #cefffc;
   }
-  .navbar li{
-    padding-right: 30px;
+
+  .navbar .nav_right ul li img {
+    width: 45px;
+    vertical-align: middle;
   }
-  @media screen and (max-width: 992px) {
-  .navbar li{
-    padding-right: 5px;
+
+  .navbar .dd_menu {
+    position: absolute;
+    right: -25px;
+    top: 47px;
+    display: flex;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
+    display: none;
   }
-}
+
+  .navbar .dd_menu .dd_left {
+    font-family: 'Montserrat', sans-serif;
+    background: #1d753e;
+    padding: 15px 20px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+  }
+
+  .navbar .dd_menu .dd_left li {
+    color: #fff;
+  }
+
+  .navbar .dd_menu .dd_right {
+    padding: 15px 20px;
+  }
+
+  .navbar .dd_menu li {
+    margin-bottom: 10px;
+    color: #868686;
+  }
+
+  .navbar .dd_menu:before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    right: 30px;
+    border: 10px solid;
+    border-color: transparent transparent #fff transparent;
+  }
+
+  .navbar .dd_main.active .dd_menu {
+    display: flex;
+  }
 </style>
+
+<script>
+  var dd_main = document.querySelector(".dd_main");
+
+  dd_main.addEventListener("click", function () {
+    this.classList.toggle("active");
+  })
+</script>
