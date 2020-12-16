@@ -114,8 +114,17 @@ router.get('/edit-product/', verifyLogIn, async (req, res) => {
 router.post('/edit-product/:id',verifyLogIn,(req,res)=>{
   let dealerId = req.session.dealer._id
   let proId = req.params.id
+  console.log(">>>>>>>>>>>",req.body);
   dealerHelpers.updateProduct(proId,req.body,dealerId).then(()=>{
     res.redirect('/dealer/products')
+    if (req.files.Image) {
+      let image = req.files.Image
+      let id = req.params.id
+      image.mv('./public/product-images/' + id + '.jpg',)
+      console.log("image success");
+    } else {
+      console.log("image upload error");
+    }
   })
   
 })
