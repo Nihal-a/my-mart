@@ -2,6 +2,7 @@ var db = require('../config/connection')
 var collection = require('../config/collections')
 const bcrypt = require('bcrypt')
 var objectId = require('mongodb').ObjectID
+const { response } = require('express')
 
 module.exports = {
     doLogin: (dealerData) => {
@@ -79,6 +80,23 @@ module.exports = {
             .find({vendor: objectId(venId)}).project({products:{$elemMatch:{_id:objectId(proId)}}}).toArray()
             console.log(">>>",proDetails);
             resolve(proDetails[0].products[0])
+        })
+    },
+    updateProduct:(proId,proDetails,venId)=>{
+        return new Promise((resolve,reject)=>{
+            db.get().collection(collection.PRODUCT_COLLECTION).findOneAndUpdate(
+                {vendor:objectId(venId),"products._id":objectId(proId)},
+                {
+                    $set:{
+                        "products.$.Name":proDetails.Name,
+                        "products.$.Category":proDetails.Category,
+                        "products.$.Price":proDetails.Price,
+                        "products.$.TotalStock":proDetails.TotalStock
+                    }
+                }
+            ).then(()=>{
+                resolve()
+            }) 
         })
     }
 
