@@ -77,7 +77,8 @@ module.exports = {
         return new Promise(async (resolve, reject) => {
             let proDetails = await db.get().collection(collection.PRODUCT_COLLECTION)
             .find({vendor: objectId(venId)}).project({products:{$elemMatch:{_id:objectId(proId)}}}).toArray()
-            resolve(proDetails[0].products)
+            console.log(">>>",proDetails);
+            resolve(proDetails[0].products[0])
         })
     }
 
