@@ -98,6 +98,17 @@ module.exports = {
                 resolve()
             }) 
         })
+    },
+    deleteProduct:(venId,proId)=>{
+        return new Promise((resolve,reject)=>{
+           db.get().collection(collection.PRODUCT_COLLECTION)
+           .updateOne({vendor:objectId(venId)},
+           {
+               $pull:{products:{_id:objectId(proId)}}
+           }
+           ).then((response)=>{
+            resolve({removeProduct:true})
+           })
+        })
     }
-
 }

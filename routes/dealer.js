@@ -114,7 +114,6 @@ router.get('/edit-product/', verifyLogIn, async (req, res) => {
 router.post('/edit-product/:id',verifyLogIn,(req,res)=>{
   let dealerId = req.session.dealer._id
   let proId = req.params.id
-  console.log(">>>>>>>>>>>",req.body);
   dealerHelpers.updateProduct(proId,req.body,dealerId).then(()=>{
     res.redirect('/dealer/products')
     if (req.files.Image) {
@@ -126,6 +125,13 @@ router.post('/edit-product/:id',verifyLogIn,(req,res)=>{
       console.log("image upload error");
     }
   })
-  
+})
+router.get('/delete-product/:id',verifyLogIn,(req, res) => {
+  let proId = req.params.id
+  let dealerId = req.session.dealer._id
+  console.log(proId);
+  dealerHelpers.deleteProduct(dealerId,proId).then(()=>{
+    res.redirect('/dealer/products')
+  })
 })
 module.exports = router;
