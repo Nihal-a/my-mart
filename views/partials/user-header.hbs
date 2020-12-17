@@ -22,18 +22,15 @@
             <div class="dd_left">
               <ul>
                 <li><i class="fas fa-map-marker-alt"></i></li>
-                <li><i class="far fa-star"></i></li>
-                <li><i class="far fa-plus-square"></i></li>
-                <li><i class="fas fa-cog"></i></li>
-                <li><i class="fas fa-download"></i></li>
+                <li><i class="far fa-clock"></i></li>
                 <li><i class="fas fa-sign-out-alt"></i></li>
               </ul>
             </div>
             <div class="dd_right">
               <ul>
-                <li>Order History</li>
-                <li>Order Status</li>
-                <li>Logout</li>
+                <li class="li-itm"><a href="">Order Status</a></li>
+                <li class="li-itm"><a href="">Order History</a></li>
+                <li class="li-itm"><a href="">Logout</a></li>
               </ul>
             </div>
           </div>
@@ -137,9 +134,15 @@
     padding: 15px 20px;
   }
 
-  .navbar .dd_menu li {
+  .navbar .dd_menu li a{
     margin-bottom: 10px;
     color: #868686;
+    text-decoration: none;
+  }
+  .navbar .dd_menu li a:hover {
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #000000;
   }
 
   .navbar .dd_menu:before {
@@ -154,6 +157,11 @@
   .navbar .dd_main.active .dd_menu {
     display: flex;
   }
+  .dd_menu {
+    width: 16rem;
+    height: 8rem;
+  }
+  
 </style>
 
 <script>
