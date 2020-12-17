@@ -4,17 +4,22 @@
   <div class="navbar">
     <div class="logo">
       <a href="" style="text-decoration: none;">
-        <h4 class="logo mt-3">MY MART</h4>
+        <h4 class="logo">MY MART</h4>
       </a>
     </div>
     <div class="nav_right">
       <ul>
         <li class="nr_li">
-          <i class="fas fa-envelope-open-text" style="color: #1d753e;"></i>
+          <div id="ex4">
+                <span class="p1 fa-stack fa-2x has-badge" data-count="4">
+                  <i class="p3 fa fa-shopping-cart fa-stack-1x xfa-inverse " style="color: #111; font-size: 26px;"
+                    data-count="4b"></i>
+                </span>
+              </div>
         </li>
         <li class="nr_li dd_main">
           <div class="" style="width: fit-content;">
-            <img src="/images/admin_login_img.png" alt="profile_img" class="pt-3"><i class="fas fa-angle-down" style="color: #111;"></i>
+            <img src="/images/admin_login_img.png" alt="profile_img" class=""><i class="fas fa-angle-down" style="color: #111;"></i>
           </div>
           
 
@@ -56,6 +61,32 @@
 
   body {
     font-family: 'Montserrat', sans-serif;
+  }
+  
+  #ex4 .p1[data-count]:after {
+    position: absolute;
+    right: 20%;
+    top: 12%;
+    content: attr(data-count);
+    font-size: 30%;
+    padding: .2em;
+    border-radius: 43%;
+    line-height: 1em;
+    color: white;
+    background: rgba(255, 0, 0, 0.85);
+    text-align: center;
+    min-width: 1.2em;
+  }
+  .fa-2x {
+    font-size: 25px;
+  }
+  .fa-stack {
+    display: inline-block;
+    height: 2em;
+    line-height: 1.7em;
+    position: relative;
+    vertical-align: middle;
+    width: 2.5em;
   }
 
   .logo {
