@@ -5,7 +5,8 @@
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Products</li>
                 <div class="welcome-msg pb-3 ml-auto">
-                    <a href="/dealer/add-products" class="btn btn-primary">Create Item<i class="fas fa-plus ml-1"></i></a>
+                    <a href="/dealer/add-products" class="btn btn-primary">Create Item<i
+                            class="fas fa-plus ml-1"></i></a>
                 </div>
             </ol>
         </nav>
@@ -29,29 +30,32 @@
                     <tbody>
                         {{#each products}}
                         <tr>
-                            <td><img src="/product-images/{{this._id}}.jpg" alt="" style="width: 50px; height: 50px;"></td>
+                            <td><img src="/product-images/{{this._id}}.jpg" alt="" style="width: 50px; height: 50px;">
+                            </td>
                             <td style="text-transform: uppercase;"><b>{{this.Name}}</b></td>
                             <td>{{this.Category}}</td>
                             <td><b>₹</b>{{this.Price}}.00</td>
                             <td class="text-primary">{{this.TotalStock}}</td>
                             <td class="text-secondary">10</td>
-                            <td class="ac-td" >
+                            <td class="ac-td">
                                 <div class="row">
                                     <div class="pr-2 pl-2">
                                         <div class="pb-1">
-                                            <a href="/dealer/edit-product?id={{this._id}}" class="btn btn-edit">EDIT</a><br>
+                                            <a href="/dealer/edit-product?id={{this._id}}"
+                                                class="btn btn-edit">EDIT</a><br>
                                         </div>
                                         <div class="pt-1">
-                                            <a href="/dealer/stock-vendor?id={{this._id}}" class="btn btn-ban">STOCK</a>
+                                            <a href="/dealer/stock-product?id={{this._id}}" class="btn btn-ban">STOCK</a>
                                         </div>
                                     </div>
                                     <div class="pl-2">
                                         <div class="pb-1">
-                                            <a href="/dealer/disable-vendor?id={{this._id}}"
+                                            <a href="/dealer/disable-product?id={{this._id}}"
                                                 class="btn btn-disable">DISABLE</a><br>
                                         </div>
                                         <div class="pt-1">
-                                            <a href="/dealer/delete-product/{{this._id}}" class="btn btn-delete">DELETE</a>
+                                            <a href="/dealer/delete-product/{{this._id}}"
+                                                class="btn btn-delete">DELETE</a>
                                         </div>
                                     </div>
                                 </div>
@@ -62,6 +66,47 @@
                 </table>
             </div>
         </section>
+
+
+{{!-- 
+        <h4 class="p-2 pt-5">Disabled Products.</h4>
+        {{!-- table start --}}
+        <section id="table">
+            <div class="container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Image</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">Left</th>
+                            <th scope="col"><span class="ml-5">Actions</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each products}}
+                        <tr>
+                            <td><img src="/product-images/{{this._id}}.jpg" alt="" style="width: 50px; height: 50px;">
+                            </td>
+                            <td style="text-transform: uppercase;"><b>{{this.Name}}</b></td>
+                            <td>{{this.Category}}</td>
+                            <td><b>₹</b>{{this.Price}}.00</td>
+                            <td class="text-primary">{{this.TotalStock}}</td>
+                            <td class="text-secondary">10</td>
+                            <td>
+                                <a href="dealer/unban-vendor?id={{this._id}}" class="btn btn-ban">Enable</a>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </section> --}}
+
+
+
         {{!-- table end --}}
         <style>
             body {
@@ -132,6 +177,7 @@
                 font-family: 'Montserrat', sans-serif;
                 color: #fff;
             }
+
             .btn-disable {
                 background-color: #aca000;
                 border-radius: 30px;
@@ -162,6 +208,7 @@
                 border-radius: 20px;
                 box-shadow: 2px 2px 2px rgb(116, 115, 115);
             }
+
             .table th,
             .table td {
                 vertical-align: middle;

@@ -134,4 +134,10 @@ router.get('/delete-product/:id',verifyLogIn,(req, res) => {
     res.redirect('/dealer/products')
   })
 })
+// router.get('/disable-product/',(req,res)=>{
+//   let proId = req.query.id
+//   let dealerId=req.session.dealer._id
+//   dealerHelpers.disableProduct(proId,dealerId)
+//   res.redirect('/dealer/products')
+// })
 module.exports = router;
