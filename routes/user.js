@@ -3,15 +3,13 @@ var router = express.Router();
 const userHelpers = require('../helpers/user-helper');
 const { use } = require('./dealer');
 /* GET home page. */
-router.get('/',async(req,res)=>{
-  let vendor = await userHelpers.getAllVendors()
-  console.log(">>>>>>>>>>>",vendor);
-  res.render('user/home', {user:true,vendor});
+router.get('/',(req,res)=>{
+  userHelpers.getAllVendors().then((vendor)=>{
+    res.render('user/home', {user:true,vendor});
+  })
+  
 })
-
-// router.get('/', function (req, res, next) {
-//   let vendor =await userHelpers.getAllVendors()
-//   res.render('user/home', { user:true });
-// });
-
+router.get('/vendors-products',(req,res)=>{
+  res.render('user/vendors-products',{user:true})
+})
 module.exports = router;
