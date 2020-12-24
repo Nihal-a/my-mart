@@ -1,17 +1,18 @@
 <section>
     <div class="container">
         <div class="row">
+            {{#each products}}
             <div class="col-md-3 carde ">
                 <div class="card">
                     <div class="img-area pt-3 m-auto">
-                        <img src="/product-images/5fd2ebfbfa78de08b04b5b23.jpg" alt="" height="75px" width="75px">
+                        <img src="/product-images/{{this._id}}.jpg" alt="" height="75px" width="75px">
                     </div>
                     <div>
-                        <h4 class="pro-name">Apple</h4>
-                        <p class="pro-catg">Fruits</p>
+                        <h4 class="pro-name">{{this.Name}}</h4>
+                        <p class="pro-catg">{{this.Category}}</p>
                     </div>
                     <div class="row">
-                        <div class="col-md-8 pro-price"><b>₹ 40.00</b></div>
+                        <div class="col-md-8 pro-price"><b>₹ {{this.Price}}.00</b></div>
                         <div class="col-md-4">
                             <a href=""><i class="fas fa-plus-square"
                                     style="color:#1d753e; font-size: 45px; line-height: 0.5;"></i></a>
@@ -19,78 +20,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 carde ">
-                <div class="card">
-                    <div class="img-area pt-3 m-auto">
-                        <img src="/product-images/5fd2ebfbfa78de08b04b5b23.jpg" alt="" height="75px" width="75px">
-                    </div>
-                    <div>
-                        <h4 class="pro-name">Apple</h4>
-                        <p class="pro-catg">Fruits</p>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-8 pro-price"><b>₹ 40.00</b></div>
-                        <div class="col-md-4">
-                            <a href=""><i class="fas fa-plus-square"
-                                    style="color:#1d753e; font-size: 45px; line-height: 0.5;"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 carde ">
-                <div class="card">
-                    <div class="img-area pt-3 m-auto">
-                        <img src="/product-images/5fd2ebfbfa78de08b04b5b23.jpg" alt="" height="75px" width="75px">
-                    </div>
-                    <div>
-                        <h4 class="pro-name">Apple</h4>
-                        <p class="pro-catg">Fruits</p>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-8 pro-price"><b>₹ 40.00</b></div>
-                        <div class="col-md-4">
-                            <a href=""><i class="fas fa-plus-square"
-                                    style="color:#1d753e; font-size: 45px; line-height: 0.5;"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 carde ">
-                <div class="card">
-                    <div class="img-area pt-3 m-auto">
-                        <img src="/product-images/5fd2ebfbfa78de08b04b5b23.jpg" alt="" height="75px" width="75px">
-                    </div>
-                    <div>
-                        <h4 class="pro-name">Apple</h4>
-                        <p class="pro-catg">Fruits</p>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-8 pro-price"><b>₹ 40.00</b></div>
-                        <div class="col-md-4">
-                            <a href=""><i class="fas fa-plus-square"
-                                    style="color:#1d753e; font-size: 45px; line-height: 0.5;"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 carde ">
-                <div class="card">
-                    <div class="img-area pt-3 m-auto">
-                        <img src="/product-images/5fd2ebfbfa78de08b04b5b23.jpg" alt="" height="75px" width="75px">
-                    </div>
-                    <div>
-                        <h4 class="pro-name">Apple</h4>
-                        <p class="pro-catg">Fruits</p>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-8 pro-price"><b>₹ 40.00</b></div>
-                        <div class="col-md-4">
-                            <a href=""><i class="fas fa-plus-square"
-                                    style="color:#1d753e; font-size: 45px; line-height: 0.5;"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {{/each}}
         </div>
     </div>
 </section>

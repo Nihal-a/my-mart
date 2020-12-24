@@ -9,7 +9,9 @@ router.get('/',(req,res)=>{
   })
   
 })
-router.get('/vendors-products',(req,res)=>{
-  res.render('user/vendors-products',{user:true})
+router.get('/vendors-products/',async(req,res)=>{
+  id=req.query.id
+  let products = await userHelpers.getVendorProduct(id)
+  res.render('user/vendors-products',{user:true , products})
 })
 module.exports = router;
